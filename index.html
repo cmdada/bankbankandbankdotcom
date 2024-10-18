@@ -199,10 +199,26 @@
                 <input type="text" id="name" placeholder="Your Name" required>
                 <input type="email" id="email" placeholder="Your Email" required>
                 <textarea id="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message (to nobody)</button>
+                <button type="submit">Send Message</button>
             </form>
         </section>
 
     </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+            
+            var mailtoLink = 'mailto:support@bankbankandbank.com'
+                + '?subject=' + encodeURIComponent('Contact Form Submission from ' + name)
+                + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+            
+            window.location.href = mailtoLink;
+        });
+    </script>
 </body>
 </html>
