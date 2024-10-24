@@ -1,168 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank Bank and Bank Loan Association</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        /* Resetting default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: 'Fredoka One', sans-serif;
-            line-height: 1.6;
-            color: #fff;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #06030F;
+            font-family: 'Poppins', sans-serif;
+            background-color: #F4F7FC;
+            color: #333;
+            margin: 0;
         }
-        header {
-            background-color: #FF9900;
+
+        header,footer {
+            background-color: #003366;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+
+        nav {
+            background-color: #00254d;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background-image: url('bank.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
             color: white;
             text-align: center;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
         }
-        header::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                #FF9900,
-                #FF9900 10px,
-                #FFB84D 10px,
-                #FFB84D 20px
-            );
-            animation: stripe-animation 1s linear infinite;
-            z-index: 1;
-        }
-        header > * {
-            position: relative;
-            z-index: 2;
-        }
-        @keyframes stripe-animation {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(50px, 50px);
-            }
-        }
-        h1, h2, a {
-            font-family: 'Fredoka One', cursive;
-            color: #FF9900;
-        }
-        h1 {
+
+        .hero h2 {
             font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        .section {
-            flex-basis: calc(100% - 20px);
-            background-color: #333;
-            padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-radius: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+
+        .hero p {
+            font-size: 1.2em;
         }
-        .full-width {
-            flex-basis: 100%;
+		table {
+		    width: 100%; /* Ensures table fills the section */
+		    border-collapse: collapse;
+		    margin-top: 20px;
+		    font-size: 1em;
+		    text-align: left;
+		}
+		
+		th, td {
+		    padding: 15px;
+		    border: 1px solid #ddd;
+		}
+		
+		th {
+		    background-color: #003366;
+		    color: white;
+		}
+		
+		td {
+		    text-align: center;
+		}
+		
+		td:first-child {
+		    text-align: left;
+		}
+		
+		td:first-child, th:first-child {
+		    width: 50%; /* Ensures feature descriptions take up more space */
+		}
+		
+		td:nth-child(2), td:nth-child(3) {
+		    width: 25%; /* Even distribution between the two banks */
+		}
+		
+		.comparison-table {
+		    width: 100%; /* Ensures table container takes full width */
+		    margin: 0 auto;
+		}
+		
+		@media (max-width: 768px) {
+		    .grid {
+		        grid-template-columns: 1fr;
+		    }
+		    table {
+		        font-size: 0.9em; /* Adjusts font size for smaller screens */
+		    }
+		}
+        .content {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        ul {
-            padding-left: 20px;
-            list-style-type: none;
+
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 20px;
         }
-        ul li::before {
-            content: "🎃 ";
-            margin-right: 5px;
+
+        .section h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #00254d;
         }
-        #contactForm {
-            display: flex;
-            flex-direction: column;
+
+        .section p {
+            line-height: 1.6;
         }
-        #contactForm input, #contactForm textarea {
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 2px solid #FF9900;
-            border-radius: 5px;
-            font-size: 16px;
+
+        .contact-form {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
         }
-        #contactForm button {
-            background-color: #FF9900;
-            color: #333;
-            border: none;
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            width: 100%;
             padding: 15px;
-            cursor: pointer;
+            margin-bottom: 10px;
             border-radius: 5px;
-            font-size: 18px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        .contact-form button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
             transition: background-color 0.3s ease;
         }
-        #contactForm button:hover {
-            background-color: #FFB84D;
+
+        .contact-form button:hover {
+            background-color: #004080;
         }
-        .floating-money {
-            position: fixed;
-            font-size: 24px;
-            pointer-events: none;
-            z-index: 9999;
-            animation: float-up 5s linear;
+
+        footer {
+            background-color: #00254d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
         }
-        @keyframes float-up {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1 style="color:#333;text-align:center;">Bank, Bank and Bank Loan Association</h1>
+        <h1>Bank, Bank and Bank Loan Association</h1>
     </header>
-	<div class="container">
-        <section class="section full-width">
-                    <h2>Welcome!</h2>
-            <p>Welcome to Bank, Bank and Bank, where we provide the best loan services for the average citizen. Here at Bank Bank, and Bank Loan Association, our priority is keeping money in the people's pockets without high interest rates and maintaining our customer's best interests.</p>
-        </section>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    <section class="hero">
+        <h2>Reliable Banking Solutions</h2>
+        <p>Your trusted partner for loans, savings, and investments.</p>
+    </section>
 
+    <div class="content grid">
         <section class="section">
-            <h2>Contact Information</h2>
-            <p>Address: 1604 Arapahoe Avenue, Boulder, CO 80302, United States</p>
-            <p>Phone: 2265 2265 263 2265</p>
-            <p>Email:  <a href="mailto:contact@bankbankandbank.com" target="_blank">contact@bankbankandbank.com</a></p>
-            <p>Website:  <a href="https://bankbankandbank.com/" target="_blank">https://bankbankandbank.com</a> </p>
+            <h3>About Us</h3>
+            <p>Bank Bank and Bank Loan Association was founded in 1946 to provide secure and reliable financial services to individuals and businesses. Since then, we have helped over ninety-seven million Americans buy homes. Our core values revolve around keeping homeownership within reach, ensuring stability, and fostering a safe and happy community.</p>
         </section>
-
         <section class="section">
-            <h2>About Us</h2>
-            <p>Bank Bank and Bank Loan Association began with a vision to support the general population with financial aid through loans and mortgages in 1946. Since then, we have helped over ninety-seven million Americans buy homes. Our core values revolve around keeping the home-buyers economy within reach of the people, and helping as many people as we can have a stable, safe, and happy place to live.</p>
-        </section>
-
-        <section class="section">
-            <h2>Services/Offerings</h2>
-            <p>At Bank, Bank and Bank, we pride ourselves on offering a very specific set of financial services to our customers, including but not limited to:</p>
+            <h3>Services We Offer</h3>
+            <p>From personal loans to mortgages, we offer a range of financial solutions tailored to meet your needs. Explore our services:</p>
             <ul>
                 <li>Personal loans</li>
                 <li>Mortgages</li>
@@ -171,54 +230,80 @@
                 <li>B2B loans</li>
             </ul>
         </section>
-
         <section class="section">
-            <h2>Special Services</h2>
-            <p>Explore our exclusive range of specialized services designed to promote and secure low-cost living for the general population. Our services include:</p>
-            <ul>
-                <li>Up to 75% coverage on first-time homebuyers purchase, based off estimated income.</li>
-                <li>On loans over $150,000, we offer as little as 2% interest for homebuyers.</li>
-                <li>The cost owed per month for homebuyer loans is decided by both you, the buyer, and a team of experts in a negotiation.</li>
-            </ul>
+            <h3>Why Choose Us?</h3>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Bank Bank and Bank</th>
+                            <th>Competitor XYZ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Low interest rates on loans</td>
+                            <td>&#10003;</td>
+                            <td>&#10007;</td>
+                        </tr>
+                        <tr>
+                            <td>Up to 75% coverage for first-time homebuyers</td>
+                            <td>&#10003;</td>
+                            <td>&#10007;</td>
+                        </tr>
+                        <tr>
+                            <td>Flexible monthly payment options</td>
+                            <td>&#10003;</td>
+                            <td>&#10007;</td>
+                        </tr>
+                        <tr>
+                            <td>Loans with as little as 2% interest</td>
+                            <td>&#10003;</td>
+                            <td>&#10007;</td>
+                        </tr>
+                        <tr>
+                            <td>Friendly customer service</td>
+                            <td>&#10003;</td>
+                            <td>&#10007;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
-
         <section class="section">
-            <h2>Why Choose Us?</h2>
-            <ul>
-                <li>What sets us apart is our commitment to providing low interest for large loans for America's homebuyers</li>
-                <li>Our team of experts ensures a 95% satisfaction rate since 2004</li>
-                <li>When you choose Bank Bank and Bank Loan Association you opt for financial security, no hidden fees, and genuine people wanting to help others receive the financial aid everyone deserves.</li>
-                <li>Quality Products: Our commitment to quality ensures satisfaction with every purchase.</li>
-                <li>Customer service: Friendly and knowledgeable staff to assist you in getting the right kind of loan for you!</li>
-            </ul>
-        </section>
-
-        <section class="section full-width">
-            <h2>Contact Us to Sign Up!</h2>
-            <form id="contactForm">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-
+            <h3>Contact Us</h3>
+            <p>Address: 1604 Arapahoe Avenue, Boulder, CO 80302, United States</p>
+            <p>Phone: 2265 2265 263 2265</p>
+            <p>Email: <a href="mailto:contact@bankbankandbank.com">contact@bankbankandbank.com</a></p>
     </div>
 
+    <section class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Bank, Bank and Bank Loan Association. All rights reserved.</p>
+    </footer>
+
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
             var name = document.getElementById('name').value;
             var email = document.getElementById('email').value;
             var message = document.getElementById('message').value;
-            
             var mailtoLink = 'mailto:support@bankbankandbank.com'
                 + '?subject=' + encodeURIComponent('Contact Form Submission from ' + name)
                 + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
-            
             window.location.href = mailtoLink;
         });
     </script>
 </body>
+
 </html>
