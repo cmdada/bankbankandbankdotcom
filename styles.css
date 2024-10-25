@@ -36,7 +36,7 @@
 	  text-decoration: underline;
 	}
 	.hero {
-	  background-image: url("bank.jpeg");
+	  background-image: url("shakinghands.jpg");
 	  background-size: cover;
 	  background-position: center;
 	  padding: 60px 20px;
@@ -48,6 +48,36 @@
 	  margin-bottom: 20px;
 	}
 	.hero p {
+	  font-size: 1.2em;
+	}
+	.hero1 {
+	  background-image: url("bank.jpeg");
+	  background-size: cover;
+	  background-position: center;
+	  padding: 60px 20px;
+	  color: white;
+	  text-align: center;
+	}
+	.hero1 h2 {
+	  font-size: 2.5em;
+	  margin-bottom: 20px;
+	}
+	.hero1 p {
+	  font-size: 1.2em;
+	}
+	.hero2 {
+	  background-image: url("3.webp");
+	  background-size: cover;
+	  background-position: center;
+	  padding: 60px 20px;
+	  color: white;
+	  text-align: center;
+	}
+	.hero2 h2 {
+	  font-size: 2.5em;
+	  margin-bottom: 20px;
+	}
+	.hero2 p {
 	  font-size: 1.2em;
 	}
 	table {
